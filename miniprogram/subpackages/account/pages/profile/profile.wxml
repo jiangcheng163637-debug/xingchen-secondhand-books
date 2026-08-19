@@ -1,0 +1,40 @@
+<view class="page profile-edit">
+  <skeleton wx:if="{{loading}}" count="2" />
+  <empty-state wx:elif="{{error}}" title="资料暂时无法打开" description="{{error}}" actionText="重新加载" bind:action="load" />
+  <block wx:else>
+    <view class="intro"><view class="intro-spine"></view><text class="eyebrow">校园藏书票</text><text class="title">让同校书友认识你</text><view class="intro-rule"></view><text class="note">只填写交易撮合需要的最少资料。</text><view class="mini-book"><text>我</text></view></view>
+
+    <view class="form-sheet">
+      <view class="sheet-title"><text>基本资料</text><view></view></view>
+      <text class="label">头像</text>
+      <button class="avatar" open-type="chooseAvatar" bindchooseavatar="chooseAvatar"><image wx:if="{{user.avatar}}" src="{{user.avatar}}" mode="aspectFill" /><text wx:else>{{user.nickname ? user.nickname[0] : '星'}}</text></button>
+      <text class="label">昵称</text><input class="field" type="nickname" value="{{user.nickname}}" maxlength="20" placeholder="填写昵称" bindinput="nicknameInput" />
+    </view>
+
+    <view class="form-sheet school-sheet">
+      <view class="sheet-title"><text>学校与校区</text><view></view></view>
+      <view class="picker-group">
+        <text class="label">省级区域</text>
+        <picker range="{{provinces}}" range-key="name" value="{{provinceIndex}}" bindchange="provinceChange"><view class="field picker"><text>{{provinces[provinceIndex].name}}</text><view class="picker-bookmark"></view></view></picker>
+      </view>
+      <view class="picker-group">
+        <text class="label">学校</text>
+        <picker range="{{schools}}" range-key="name" value="{{schoolIndex}}" bindchange="schoolChange"><view class="field picker"><text class="picker-text">{{schools[schoolIndex].name}}</text><view class="picker-bookmark"></view></view></picker>
+        <text class="school-meta">{{schools[schoolIndex].city}} · {{schools[schoolIndex].level}}{{schools[schoolIndex].remark ? ' · ' + schools[schoolIndex].remark : ''}}</text>
+      </view>
+      <view class="picker-group">
+        <text class="label">校区</text>
+        <picker range="{{campuses}}" range-key="name" value="{{campusIndex}}" bindchange="campusChange"><view class="field picker"><text class="picker-text">{{campuses[campusIndex].name}}</text><view class="picker-bookmark"></view></view></picker>
+      </view>
+      <view wx:if="{{isManualCampus}}" class="manual-campus">
+        <text class="label required-label">手动填写校区</text>
+        <input class="field manual-input" value="{{manualCampusName}}" maxlength="40" placeholder="请输入实际校区名称" bindinput="manualCampusInput" />
+        <text class="input-count">{{manualCampusName.length}} / 40</text>
+      </view>
+      <view class="data-notice"><view class="notice-bookmark"></view><text>高校底表来自教育部2026-06-17普通高校名单；校区为开源地理信息参考，选择前请核对。</text></view>
+    </view>
+
+    <button class="save" loading="{{saving}}" disabled="{{saving}}" bindtap="save">保存资料</button>
+    <button class="delete-account" disabled="{{saving}}" bindtap="deleteAccount">注销账号并删除个人资料</button>
+  </block>
+</view>

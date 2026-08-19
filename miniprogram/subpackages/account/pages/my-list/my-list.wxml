@@ -1,0 +1,16 @@
+<view class="page my-list-page">
+  <view class="page-heading"><text>{{title}}</text><view></view></view>
+  <skeleton wx:if="{{loading}}" count="4" />
+  <empty-state wx:elif="{{error}}" title="书架加载失败" description="{{error}}" actionText="重试" bind:action="retry" />
+  <empty-state wx:elif="{{!items.length}}" title="{{type === 'favorite' ? '还没有收藏' : '还没有发布'}}" description="{{type === 'favorite' ? '逛逛首页，把心仪的书放进来' : '把闲置好书分享给同校同学吧'}}" actionText="{{type === 'favorite' ? '去逛首页' : '去发布'}}" bind:action="emptyAction" />
+  <view wx:else class="list">
+    <view class="item" wx:for="{{items}}" wx:key="id" data-id="{{item.id}}" bindtap="open" hover-class="item--pressed">
+      <view class="cover-frame"><image wx:if="{{item.cover}}" src="{{item.cover}}" mode="aspectFill" /><view wx:else class="cover-placeholder"><view class="spine"></view><text>{{item.coverLetter}}</text></view></view>
+      <view class="copy"><text class="title">{{item.title}}</text><text class="meta">{{item.dateText}} · {{item.condition}}</text><text class="price">¥{{item.priceText}}</text><text wx:if="{{type === 'publish'}}" class="status-tag">{{item.statusText}}</text></view>
+      <view class="actions" catchtap="noop">
+        <button wx:if="{{type === 'favorite'}}" class="remove-favorite" data-id="{{item.id}}" catchtap="unfavorite">取消收藏</button>
+        <block wx:else><button wx:if="{{item.status === 'published'}}" data-id="{{item.id}}" data-status="sold" catchtap="changeStatus">标记售出</button><button wx:if="{{item.status === 'published'}}" class="offline" data-id="{{item.id}}" data-status="offline" catchtap="changeStatus">下架</button></block>
+      </view>
+    </view>
+  </view>
+</view>

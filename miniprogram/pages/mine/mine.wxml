@@ -1,0 +1,34 @@
+<view class="page mine">
+  <skeleton wx:if="{{loading && !user}}" count="2" />
+  <empty-state wx:elif="{{error}}" title="个人书架暂时打不开" description="{{error}}" actionText="重新加载" bind:action="retry" />
+  <block wx:else>
+    <view class="profile">
+      <view class="profile-spine"></view><text class="stamp">我的藏书票</text>
+      <button class="avatar-button" open-type="chooseAvatar" bindchooseavatar="chooseAvatar"><image wx:if="{{user.avatar}}" src="{{user.avatar}}" mode="aspectFill" /><text wx:else>{{user.nickname ? user.nickname[0] : '星'}}</text></button>
+      <input class="nickname" type="nickname" value="{{user.nickname}}" placeholder="填写昵称" bindblur="nicknameChange" />
+      <text class="school">{{user.school.name}} · {{user.school.campusName}}</text>
+      <button class="edit" data-url="/subpackages/account/pages/profile/profile" bindtap="go">编辑资料</button>
+      <view class="profile-books"><view></view><view></view><view></view></view>
+    </view>
+
+    <view class="stats">
+      <view data-url="/subpackages/account/pages/my-list/my-list?type=publish" bindtap="go"><text class="stat-number">{{stats.publish}}</text><text>我的发布</text></view>
+      <view data-url="/subpackages/account/pages/my-list/my-list?type=favorite" bindtap="go"><text class="stat-number">{{stats.favorite}}</text><text>我的收藏</text></view>
+      <view data-url="/subpackages/account/pages/history/history" bindtap="go"><text class="stat-number">{{stats.history}}</text><text>浏览足迹</text></view>
+    </view>
+
+    <view class="menu-title"><text>书架管理</text><view></view></view>
+    <view class="menu">
+      <view data-url="/subpackages/account/pages/my-list/my-list?type=publish" bindtap="go"><view class="book-mark"><text>售</text></view><text>我的发布</text><view class="arrow"></view></view>
+      <view data-url="/subpackages/account/pages/my-list/my-list?type=favorite" bindtap="go"><view class="book-mark red"><text>藏</text></view><text>我的收藏</text><view class="arrow"></view></view>
+      <view data-url="/subpackages/account/pages/history/history" bindtap="go"><view class="book-mark kraft"><text>阅</text></view><text>浏览足迹</text><view class="arrow"></view></view>
+    </view>
+
+    <view class="menu-title support-title"><text>服务与说明</text><view></view></view>
+    <view class="menu">
+      <view data-url="/subpackages/support/pages/feedback/feedback" bindtap="go"><view class="book-mark kraft"><text>言</text></view><text>意见反馈</text><view class="arrow"></view></view>
+      <view data-url="/subpackages/support/pages/about/about" bindtap="go"><view class="book-mark"><text>星</text></view><text>关于星辰二手书</text><view class="arrow"></view></view>
+    </view>
+    <view class="boundary"><view class="boundary-rule"></view><text>不接入在线支付 · 仅提供信息撮合 · 请线下安全交易</text></view>
+  </block>
+</view>

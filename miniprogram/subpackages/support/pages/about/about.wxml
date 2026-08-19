@@ -1,0 +1,9 @@
+<view class="page about">
+  <view class="mast"><view class="mast-spine"></view><view class="cover-seal"><text>星辰</text></view><text class="title">让每一本书，都有下一位读者</text><view class="mast-rule"></view><text class="edition">星辰二手书 · {{version}}</text></view>
+  <view class="story">
+    <view class="chapter"><text class="chapter-number">一</text><view><text class="heading">我们做什么</text><text>为大学校园里的教材和课外书提供信息发布与联系撮合，让闲置书留在校园继续流转。</text></view></view>
+    <view class="chapter"><text class="chapter-number">二</text><view><text class="heading">我们不做什么</text><text>平台不提供在线支付、交易担保与物流服务。交易由双方自主协商并在线下完成。</text></view></view>
+    <view class="chapter"><text class="chapter-number">三</text><view><text class="heading">安全提示</text><text>优先选择校内公共区域当面验书；不要提前转账；发现可疑内容请立即举报。</text></view></view>
+  </view>
+  <button class="safety" bindtap="copySafety">复制安全提示</button>
+</view>

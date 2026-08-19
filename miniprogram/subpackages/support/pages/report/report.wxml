@@ -1,0 +1,10 @@
+<view class="page report">
+  <view class="warning"><view class="warning-book"><text>核</text></view><view><text class="title">帮助我们核查这条信息</text><text>如遇诈骗风险，请勿转账，并保留沟通与付款证据。</text></view></view>
+  <view class="sheet">
+    <view class="sheet-head"><text>举报说明</text><view></view></view>
+    <text class="label">问题类型</text>
+    <picker range="{{reasons}}" value="{{reasonIndex}}" bindchange="reasonChange"><view class="field"><text>{{reasons[reasonIndex]}}</text><view class="picker-bookmark"></view></view></picker>
+    <text class="label">补充说明（选填）</text><textarea value="{{detail}}" maxlength="500" placeholder="请提供有助于核查的信息，不要填写无关隐私" bindinput="detailInput" /><text class="count">{{detail.length}} / 500</text>
+  </view>
+  <button class="danger" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交举报</button>
+</view>

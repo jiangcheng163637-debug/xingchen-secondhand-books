@@ -1,0 +1,13 @@
+<view class="loading-book" aria-role="img" aria-label="正在加载">
+  <view class="book-back"></view>
+  <view class="loading-page loading-left"></view>
+  <view class="loading-page loading-right"></view>
+  <view class="loading-spine"></view>
+</view>
+<text class="loading-copy">正在翻阅书架…</text>
+<view class="grid">
+  <view class="skeleton-card" wx:for="{{items}}" wx:key="*this">
+    <view class="skeleton-cover"></view>
+    <view class="skeleton-line"></view>
+  </view>
+</view>

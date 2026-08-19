@@ -1,0 +1,29 @@
+<view class="page search-page">
+  <view class="search-bar">
+    <view class="input-wrap">
+      <view class="search-icon"></view>
+      <input value="{{keyword}}" focus confirm-type="search" placeholder="书名、作者、课程名或 ISBN" bindinput="onInput" bindconfirm="onInput" />
+      <view class="focus-bookmark"></view>
+    </view>
+    <button class="cancel" bindtap="cancel">取消</button>
+  </view>
+
+  <view wx:if="{{!searched && history.length}}" class="history">
+    <view class="history-head"><text>最近找过</text><text class="clear" bindtap="clearHistory">清除记录</text></view>
+    <view class="ink-rule"></view>
+    <view class="tags"><text class="tag" wx:for="{{history}}" wx:key="*this" data-value="{{item}}" bindtap="useHistory">{{item}}</text></view>
+  </view>
+
+  <skeleton wx:if="{{searching}}" count="4" />
+  <empty-state wx:elif="{{error}}" title="搜索遇到一点问题" description="{{error}}" actionText="再试一次" bind:action="retry" />
+  <empty-state wx:elif="{{searched && !results.length}}" title="没有找到相关书籍" description="换个书名、作者或 ISBN 试试看" />
+  <view wx:elif="{{results.length}}" class="results">
+    <view class="result-title"><text>找到 {{results.length}} 本相关好书</text><view class="title-line"></view></view>
+    <view class="book-grid"><book-card wx:for="{{results}}" wx:key="id" book="{{item}}" bind:open="openBook" /></view>
+  </view>
+  <view wx:else class="search-prompt">
+    <view class="prompt-book"><view></view><view></view><text>检</text></view>
+    <text class="prompt-big">从一本书开始</text>
+    <text>输入至少两个字，看看同校同学在分享什么</text>
+  </view>
+</view>

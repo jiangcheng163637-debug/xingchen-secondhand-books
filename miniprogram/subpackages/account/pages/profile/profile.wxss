@@ -1,0 +1,32 @@
+.profile-edit { padding-bottom: 64rpx; }
+.intro { position: relative; min-height: 238rpx; padding: 34rpx 148rpx 34rpx 40rpx; overflow: hidden; color: #F9F7F2; background: #2C425B; border-radius: 12rpx; box-shadow: 7rpx 9rpx 0 rgba(232, 217, 195, .78); }
+.intro-spine { position: absolute; top: 0; bottom: 0; left: 16rpx; width: 6rpx; background: #C85A5A; }
+.eyebrow, .title, .note { display: block; }
+.eyebrow { color: #E8D9C3; font-size: 20rpx; letter-spacing: 6rpx; }
+.title { margin-top: 16rpx; font-size: 42rpx; font-weight: 700; }
+.intro-rule { width: 78rpx; height: 2rpx; margin: 18rpx 0 12rpx; background: #E8D9C3; }
+.note { color: #E8D9C3; font-size: 22rpx; }
+.mini-book { position: absolute; right: 28rpx; bottom: 30rpx; display: flex; align-items: center; justify-content: center; width: 92rpx; height: 122rpx; color: #2C425B; background: #E8D9C3; border: 2rpx solid #F9F7F2; border-radius: 4rpx 12rpx 12rpx 4rpx; font-size: 36rpx; font-weight: 700; transform: rotate(4deg); }
+.form-sheet { margin-top: 32rpx; padding: 24rpx; background: #F9F7F2; border: 2rpx solid rgba(44, 66, 91, .26); border-radius: 12rpx; box-shadow: 6rpx 8rpx 0 rgba(232, 217, 195, .68); }
+.sheet-title { display: flex; align-items: center; margin-bottom: 8rpx; color: #2C425B; font-size: 29rpx; font-weight: 700; }
+.sheet-title view { flex: 1; height: 2rpx; margin-left: 16rpx; background: rgba(44, 66, 91, .3); }
+.label { display: block; margin: 24rpx 0 10rpx; color: #666666; font-size: 23rpx; }
+.avatar { display: flex; align-items: center; justify-content: center; width: 120rpx; height: 150rpx; padding: 0; overflow: hidden; color: #2C425B; background: #E8D9C3; border: 2rpx solid #2C425B; border-radius: 12rpx; font-size: 44rpx; line-height: 1; }
+.avatar image { width: 100%; height: 100%; }
+.field { width: 100%; min-height: 88rpx; padding: 20rpx 8rpx; border-bottom: 2rpx solid rgba(44, 66, 91, .42); color: #222222; }
+.school-sheet { position: relative; }
+.picker-group { position: relative; }
+.picker { display: flex; align-items: center; justify-content: space-between; min-height: 88rpx; }
+.picker-text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.picker-bookmark { position: relative; flex: none; width: 18rpx; height: 34rpx; margin-left: 16rpx; background: #C85A5A; }
+.picker-bookmark::after { content: ""; position: absolute; bottom: 0; border-right: 9rpx solid transparent; border-bottom: 8rpx solid #F9F7F2; border-left: 9rpx solid transparent; }
+.school-meta { display: block; margin-top: 8rpx; color: #666666; font-size: 21rpx; line-height: 34rpx; }
+.manual-campus { position: relative; padding-bottom: 30rpx; }
+.required-label::after { content: " · 必填"; color: #C85A5A; }
+.manual-input { padding-right: 110rpx; }
+.input-count { position: absolute; right: 8rpx; bottom: 42rpx; color: #666666; font-size: 20rpx; }
+.data-notice { position: relative; display: flex; align-items: flex-start; margin-top: 28rpx; padding: 18rpx 18rpx 18rpx 46rpx; color: #666666; background: rgba(232, 217, 195, .42); border-left: 4rpx solid #2C425B; border-radius: 12rpx; font-size: 21rpx; line-height: 34rpx; }
+.notice-bookmark { position: absolute; top: 0; left: 16rpx; width: 16rpx; height: 34rpx; background: #C85A5A; }
+.notice-bookmark::after { content: ""; position: absolute; bottom: 0; border-right: 8rpx solid transparent; border-bottom: 7rpx solid rgba(232, 217, 195, .42); border-left: 8rpx solid transparent; }
+.save { width: 100%; margin-top: 40rpx; color: #F9F7F2; background: #2C425B; font-weight: 700; }
+.delete-account { width: 100%; margin-top: 16rpx; color: #C85A5A; background: transparent; border: 2rpx solid rgba(200, 90, 90, .5); }

@@ -1,0 +1,9 @@
+<view class="empty">
+  <view class="shelf-art">
+    <view class="open-book"><view class="book-page left"></view><view class="book-page right"></view><view class="crease"></view></view>
+    <view class="shelf"><view></view><view></view><view></view></view>
+  </view>
+  <text class="title">{{title}}</text>
+  <text wx:if="{{description}}" class="desc">{{description}}</text>
+  <button wx:if="{{actionText}}" class="action" bindtap="action">{{actionText}}</button>
+</view>

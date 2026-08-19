@@ -1,0 +1,9 @@
+<view class="page feedback">
+  <view class="intro"><view class="intro-spine"></view><text class="eyebrow">读者便笺</text><text class="title">写张便笺给星辰</text><view class="intro-rule"></view><text class="note">功能建议、使用问题和校园合作想法都欢迎。</text><view class="bookmark"><text>言</text></view></view>
+  <view class="sheet">
+    <view class="sheet-head"><text>反馈正文</text><view></view></view>
+    <text class="label">你的反馈</text><textarea value="{{content}}" maxlength="2000" placeholder="请描述遇到的问题或你的建议" data-key="content" bindinput="input" /><text class="count">{{content.length}} / 2000</text>
+    <text class="label">联系方式（选填）</text><input value="{{contact}}" maxlength="100" placeholder="便于我们进一步了解" data-key="contact" bindinput="input" />
+  </view>
+  <button class="submit" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交反馈</button>
+</view>

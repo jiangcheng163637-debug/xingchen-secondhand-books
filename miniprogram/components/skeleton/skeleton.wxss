@@ -1,0 +1,14 @@
+.loading-book { position: relative; width: 112rpx; height: 72rpx; margin: 46rpx auto 12rpx; }
+.book-back { position: absolute; right: 0; bottom: 0; left: 0; height: 62rpx; background: #E8D9C3; border: 2rpx solid #2C425B; border-radius: 12rpx; }
+.loading-page { position: absolute; top: 8rpx; width: 55rpx; height: 56rpx; background: #F9F7F2; border: 2rpx solid #2C425B; }
+.loading-left { left: 2rpx; border-radius: 10rpx 2rpx 2rpx 10rpx; transform-origin: right center; animation: open-left 960ms ease-in-out infinite alternate; }
+.loading-right { right: 2rpx; border-radius: 2rpx 10rpx 10rpx 2rpx; transform-origin: left center; animation: open-right 960ms ease-in-out infinite alternate; }
+.loading-spine { position: absolute; top: 10rpx; bottom: 4rpx; left: 55rpx; width: 2rpx; background: #2C425B; }
+.loading-copy { display: block; margin-bottom: 28rpx; color: #666666; font-size: 22rpx; text-align: center; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16rpx; }
+.skeleton-card { position: relative; height: 0; overflow: hidden; padding-top: 150%; background: #F9F7F2; border: 2rpx solid rgba(44, 66, 91, .18); border-radius: 12rpx; box-shadow: 4rpx 6rpx 0 rgba(44, 66, 91, .10), 9rpx 12rpx 0 rgba(232, 217, 195, .62); }
+.skeleton-cover { position: absolute; top: 0; right: 0; left: 0; height: 83.333%; background: #E8D9C3; border-bottom: 2rpx solid rgba(44, 66, 91, .22); animation: paper-pulse 960ms ease-in-out infinite alternate; }
+.skeleton-line { position: absolute; right: 16rpx; bottom: 26rpx; left: 16rpx; height: 12rpx; background: #2C425B; opacity: .18; }
+@keyframes open-left { from { transform: rotate(-2deg) scaleX(1); opacity: .72; } to { transform: rotate(-10deg) scaleX(.82); opacity: 1; } }
+@keyframes open-right { from { transform: rotate(2deg) scaleX(1); opacity: .72; } to { transform: rotate(10deg) scaleX(.82); opacity: 1; } }
+@keyframes paper-pulse { from { opacity: .48; } to { opacity: .84; } }

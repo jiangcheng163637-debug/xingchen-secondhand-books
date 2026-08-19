@@ -1,0 +1,19 @@
+<view class="card-shell" bindtap="open" hover-class="card-shell--pressed" hover-stay-time="120">
+  <view class="card">
+    <view class="cover-area">
+      <image wx:if="{{book.cover && !imageFailed}}" class="cover" src="{{book.cover}}" mode="aspectFill" lazy-load binderror="imageError" />
+      <view wx:else class="cover-placeholder">
+        <view class="spine"></view>
+        <text class="cover-mark">星辰旧书</text>
+        <text class="cover-letter">{{book.coverLetter}}</text>
+        <view class="print-lines"><view></view><view></view><view></view></view>
+      </view>
+      <view class="title-slip"><text class="title">{{book.title}}</text></view>
+      <text class="bookmark-tag condition">{{book.condition}}</text>
+    </view>
+    <view class="content">
+      <text class="price"><text class="yen">¥</text>{{book.priceText}}</text>
+      <text class="school">{{book.school}} · {{book.campus}}</text>
+    </view>
+  </view>
+</view>

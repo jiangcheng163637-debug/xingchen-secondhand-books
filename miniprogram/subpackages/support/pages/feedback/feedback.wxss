@@ -1,0 +1,18 @@
+.feedback { padding-bottom: 64rpx; }
+.intro { position: relative; min-height: 240rpx; padding: 34rpx 150rpx 34rpx 40rpx; overflow: hidden; color: #F9F7F2; background: #2C425B; border-radius: 12rpx; box-shadow: 7rpx 9rpx 0 rgba(232, 217, 195, .78); }
+.intro-spine { position: absolute; top: 0; bottom: 0; left: 16rpx; width: 6rpx; background: #C85A5A; }
+.eyebrow, .title, .note { display: block; }
+.eyebrow { color: #E8D9C3; font-size: 20rpx; letter-spacing: 6rpx; }
+.title { margin-top: 14rpx; font-size: 42rpx; font-weight: 700; }
+.intro-rule { width: 76rpx; height: 2rpx; margin: 18rpx 0 12rpx; background: #E8D9C3; }
+.note { color: #E8D9C3; font-size: 22rpx; }
+.bookmark { position: absolute; top: 0; right: 42rpx; display: flex; align-items: center; justify-content: center; width: 62rpx; height: 132rpx; color: #F9F7F2; background: #C85A5A; font-size: 30rpx; font-weight: 700; }
+.bookmark::after { content: ""; position: absolute; bottom: 0; border-right: 31rpx solid transparent; border-bottom: 24rpx solid #2C425B; border-left: 31rpx solid transparent; }
+.sheet { margin-top: 32rpx; padding: 24rpx; background: #F9F7F2; border: 2rpx solid rgba(44, 66, 91, .26); border-radius: 12rpx; box-shadow: 6rpx 8rpx 0 rgba(232, 217, 195, .68); }
+.sheet-head { display: flex; align-items: center; color: #2C425B; font-size: 29rpx; font-weight: 700; }
+.sheet-head view { flex: 1; height: 2rpx; margin-left: 16rpx; background: rgba(44, 66, 91, .3); }
+.label { display: block; margin: 24rpx 0 10rpx; color: #666666; font-size: 23rpx; }
+.sheet textarea, .sheet input { width: 100%; padding: 18rpx 8rpx; background: transparent; border-bottom: 2rpx solid rgba(44, 66, 91, .42); }
+.sheet textarea { height: 260rpx; line-height: 44rpx; }
+.count { display: block; margin-top: 8rpx; color: #666666; font-size: 21rpx; text-align: right; }
+.submit { width: 100%; margin-top: 36rpx; color: #F9F7F2; background: #2C425B; font-weight: 700; }

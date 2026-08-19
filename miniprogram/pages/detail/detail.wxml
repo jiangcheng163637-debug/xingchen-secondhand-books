@@ -1,0 +1,50 @@
+<view class="detail-page safe-bottom">
+  <view class="page">
+    <skeleton wx:if="{{loading}}" count="2" />
+    <empty-state wx:elif="{{error}}" title="这本书暂时看不了" description="{{error}}" actionText="重新加载" bind:action="load" />
+    <block wx:elif="{{book}}">
+      <view class="cover-frame" data-src="{{book.cover}}" bindtap="preview">
+        <image wx:if="{{book.cover && !imageFailed}}" src="{{book.cover}}" mode="aspectFill" binderror="imageError" />
+        <view wx:else class="hero-placeholder">
+          <view class="cover-spine"></view>
+          <text class="small">星辰二手书藏</text>
+          <text class="letter">{{book.coverLetter}}</text>
+          <view class="placeholder-lines"><view></view><view></view><view></view></view>
+          <text class="journey">一本书的下一段旅程</text>
+        </view>
+        <text class="bookmark-tag cover-condition">{{book.condition}}</text>
+      </view>
+
+      <view class="title-row">
+        <view class="title-copy"><text class="book-title">{{book.title}}</text><text class="meta">{{book.author || '作者暂未填写'}} · {{book.dateText}}</text></view>
+        <view class="price"><text>¥</text>{{book.priceText}}</view>
+      </view>
+
+      <view class="paper info">
+        <view><text>成色</text><text class="info-value">{{book.condition}}</text></view>
+        <view><text>原价</text><text class="info-value">¥{{book.originalPrice || '--'}}</text></view>
+        <view><text>浏览</text><text class="info-value">{{book.viewCount || 0}}</text></view>
+      </view>
+
+      <view class="section">
+        <view class="heading-row"><text class="heading">书籍档案</text><view class="heading-line"></view></view>
+        <view class="facts"><view><text>出版社</text><text>{{book.publisher || '未填写'}}</text></view><view><text>ISBN</text><text>{{book.isbn || '未填写'}}</text></view><view><text>分类</text><text class="category-bookmark">{{book.category}}</text></view></view>
+      </view>
+
+      <view class="section">
+        <view class="heading-row"><text class="heading">卖家与交接</text><view class="heading-line"></view></view>
+        <view class="seller"><view class="avatar">{{book.sellerLetter}}</view><view class="seller-copy"><text class="seller-name">{{book.seller.nickname}}</text><text>{{book.school}} · {{book.campus}}</text></view><button class="contact" bindtap="want">联系卖家</button></view>
+        <view class="safety"><view class="safety-mark">阅</view><text>联系方式经确认后受控展示。请勿提前转账，建议在校内公共区域当面验书。</text></view>
+      </view>
+
+      <view class="section"><view class="heading-row"><text class="heading">书友备注</text><view class="heading-line"></view></view><text class="description">{{book.description || '卖家没有留下更多备注。'}}</text></view>
+      <button class="report" bindtap="report">举报此信息</button>
+    </block>
+  </view>
+
+  <view wx:if="{{book}}" class="action-bar">
+    <button class="minor {{book.isFavorite ? 'selected' : ''}}" bindtap="toggleFavorite"><view wx:if="{{book.isFavorite}}" class="floating-bookmark"></view>{{book.isFavorite ? '已收藏' : '收藏'}}</button>
+    <button class="minor" open-type="share">分享</button>
+    <button class="want" loading="{{working}}" bindtap="want">我想要</button>
+  </view>
+</view>

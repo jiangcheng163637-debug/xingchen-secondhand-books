@@ -1,0 +1,4 @@
+.history-page { padding-bottom: 48rpx; }
+.page-heading { display: flex; align-items: center; margin: 8rpx 0 20rpx; color: #222222; font-size: 36rpx; font-weight: 700; }
+.page-heading view { flex: 1; height: 2rpx; margin-left: 18rpx; background: rgba(44, 66, 91, .3); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20rpx 16rpx; }

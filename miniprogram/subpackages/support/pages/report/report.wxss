@@ -1,0 +1,19 @@
+.report { padding-bottom: 64rpx; }
+.warning { display: flex; align-items: center; margin: 12rpx 0 32rpx; padding: 24rpx; color: #222222; background: rgba(232, 217, 195, .48); border-left: 6rpx solid #C85A5A; border-radius: 12rpx; }
+.warning-book { position: relative; display: flex; align-items: center; justify-content: center; flex: none; width: 76rpx; height: 96rpx; margin-right: 20rpx; color: #F9F7F2; background: #C85A5A; border: 2rpx solid #2C425B; border-radius: 3rpx 10rpx 10rpx 3rpx; font-size: 30rpx; font-weight: 700; }
+.warning-book::before { content: ""; position: absolute; top: 0; bottom: 0; left: 10rpx; width: 2rpx; background: #F9F7F2; opacity: .62; }
+.warning > view:last-child { flex: 1; }
+.warning text { display: block; }
+.warning .title { margin-bottom: 8rpx; color: #2C425B; font-size: 32rpx; font-weight: 700; }
+.warning text:last-child { color: #666666; font-size: 22rpx; line-height: 36rpx; }
+.sheet { padding: 24rpx; background: #F9F7F2; border: 2rpx solid rgba(44, 66, 91, .26); border-radius: 12rpx; box-shadow: 6rpx 8rpx 0 rgba(232, 217, 195, .68); }
+.sheet-head { display: flex; align-items: center; color: #2C425B; font-size: 29rpx; font-weight: 700; }
+.sheet-head view { flex: 1; height: 2rpx; margin-left: 16rpx; background: rgba(44, 66, 91, .3); }
+.label { display: block; margin: 24rpx 0 10rpx; color: #666666; font-size: 23rpx; }
+.field, .sheet textarea { width: 100%; padding: 18rpx 8rpx; background: transparent; border-bottom: 2rpx solid rgba(44, 66, 91, .42); }
+.field { display: flex; align-items: center; justify-content: space-between; min-height: 88rpx; }
+.picker-bookmark { position: relative; width: 18rpx; height: 34rpx; background: #C85A5A; }
+.picker-bookmark::after { content: ""; position: absolute; bottom: 0; border-right: 9rpx solid transparent; border-bottom: 8rpx solid #F9F7F2; border-left: 9rpx solid transparent; }
+.sheet textarea { height: 224rpx; line-height: 44rpx; }
+.count { display: block; margin-top: 8rpx; color: #666666; font-size: 21rpx; text-align: right; }
+.danger { width: 100%; margin-top: 36rpx; color: #F9F7F2; background: #C85A5A; font-weight: 700; }

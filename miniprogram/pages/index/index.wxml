@@ -1,0 +1,35 @@
+<view class="page home">
+  <view class="hero">
+    <view class="hero-spine"></view>
+    <view class="hero-copy">
+      <text class="eyebrow">校园流转书目</text>
+      <text class="headline">让旧书，遇见新同学</text>
+      <view class="hero-rule"></view>
+      <text class="subhead">{{school.name}} · {{school.campusName}}</text>
+    </view>
+    <view class="book-stack"><view class="book-one"></view><view class="book-two"></view><view class="book-three"></view></view>
+  </view>
+
+  <view class="search" bindtap="openSearch" hover-class="search--pressed">
+    <view class="search-icon"></view>
+    <text>搜书名、作者、课程名或 ISBN</text>
+    <view class="search-bookmark"></view>
+  </view>
+
+  <scroll-view class="categories" scroll-x enhanced show-scrollbar="{{false}}">
+    <view class="category-row">
+      <view class="category {{activeCategory === item ? 'active' : ''}}" wx:for="{{categories}}" wx:key="*this" data-value="{{item}}" bindtap="selectCategory">{{item}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="section-head">
+    <view><text class="section-title">同校新到</text><view class="title-rule"></view></view>
+    <text class="section-note">好书正在流转</text>
+  </view>
+
+  <skeleton wx:if="{{loading && !books.length}}" count="4" />
+  <empty-state wx:elif="{{error}}" title="暂时没有取到书单" description="{{error}}" actionText="重新加载" bind:action="retry" />
+  <empty-state wx:elif="{{!books.length}}" title="这一栏还没有书" description="成为第一个在这里分享好书的人吧" actionText="去发布" bind:action="publish" />
+  <view wx:else class="book-grid"><book-card wx:for="{{books}}" wx:key="id" book="{{item}}" bind:open="openBook" /></view>
+  <view wx:if="{{books.length}}" class="load-tip"><view class="tip-line"></view><text>{{loading ? '正在翻找更多好书…' : (hasMore ? '上拉继续逛' : '已经翻到书架底部了')}}</text><view class="tip-line"></view></view>
+</view>

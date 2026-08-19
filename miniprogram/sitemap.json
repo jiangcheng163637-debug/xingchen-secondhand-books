@@ -1,0 +1,4 @@
+{
+  "desc": "星辰二手书页面索引规则",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

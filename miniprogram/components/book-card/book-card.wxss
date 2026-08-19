@@ -1,0 +1,74 @@
+.card-shell {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 150%;
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+.card-shell--pressed {
+  transform: translateY(6rpx);
+}
+
+.card-shell--pressed .card {
+  box-shadow: 2rpx 4rpx 0 rgba(44, 66, 91, .14), 5rpx 8rpx 0 rgba(232, 217, 195, .72);
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: #F9F7F2;
+  border: 2rpx solid rgba(44, 66, 91, .28);
+  border-radius: 12rpx;
+  box-shadow: 4rpx 6rpx 0 rgba(44, 66, 91, .16), 9rpx 12rpx 0 rgba(232, 217, 195, .82);
+  transition: box-shadow 120ms ease-out;
+}
+
+.cover-area {
+  position: relative;
+  width: 100%;
+  height: 83.333%;
+  overflow: hidden;
+  background: #E8D9C3;
+  border-bottom: 2rpx solid #2C425B;
+}
+
+.cover { display: block; width: 100%; height: 100%; }
+.cover-placeholder { position: relative; width: 100%; height: 100%; padding: 34rpx 28rpx 92rpx 48rpx; color: #2C425B; }
+.spine { position: absolute; top: 0; bottom: 0; left: 20rpx; width: 8rpx; background: #2C425B; opacity: .72; }
+.cover-mark { display: block; font-size: 18rpx; letter-spacing: 6rpx; text-align: center; }
+.cover-letter { display: block; margin-top: 48rpx; font-size: 84rpx; font-weight: 700; line-height: 1; text-align: center; }
+.print-lines { margin: 42rpx auto 0; width: 116rpx; }
+.print-lines view { height: 2rpx; margin-top: 12rpx; background: #2C425B; opacity: .52; }
+
+.title-slip {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 76rpx;
+  padding: 12rpx 16rpx;
+  background: rgba(249, 247, 242, .94);
+  border-top: 2rpx solid rgba(44, 66, 91, .28);
+}
+
+.title {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #222222;
+  font-size: 25rpx;
+  font-weight: 700;
+  line-height: 32rpx;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.condition { position: absolute; top: 16rpx; right: 0; }
+.content { display: flex; align-items: center; height: 16.667%; min-height: 72rpx; padding: 10rpx 16rpx; }
+.price { flex: none; color: #C85A5A; font-family: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", serif; font-size: 30rpx; font-weight: 700; }
+.yen { margin-right: 2rpx; font-size: 19rpx; }
+.school { flex: 1; margin-left: 12rpx; overflow: hidden; color: #666666; font-size: 18rpx; text-align: right; text-overflow: ellipsis; white-space: nowrap; }

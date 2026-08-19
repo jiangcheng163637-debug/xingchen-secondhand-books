@@ -1,0 +1,15 @@
+.empty { display: flex; flex-direction: column; align-items: center; padding: 88rpx 32rpx; text-align: center; }
+.shelf-art { position: relative; width: 176rpx; height: 126rpx; margin-bottom: 28rpx; }
+.open-book { position: absolute; top: 0; left: 16rpx; width: 144rpx; height: 88rpx; }
+.book-page { position: absolute; top: 8rpx; width: 72rpx; height: 76rpx; background: #E8D9C3; border: 2rpx solid #2C425B; }
+.book-page.left { left: 0; border-radius: 12rpx 2rpx 2rpx 12rpx; transform: skewY(7deg); }
+.book-page.right { right: 0; border-radius: 2rpx 12rpx 12rpx 2rpx; transform: skewY(-7deg); }
+.crease { position: absolute; top: 8rpx; bottom: 2rpx; left: 71rpx; width: 2rpx; background: #2C425B; }
+.shelf { position: absolute; right: 0; bottom: 0; left: 0; height: 26rpx; border-top: 4rpx solid #2C425B; border-bottom: 2rpx solid #2C425B; }
+.shelf view { position: absolute; bottom: 4rpx; width: 20rpx; height: 34rpx; background: #C85A5A; border: 2rpx solid #2C425B; }
+.shelf view:nth-child(1) { left: 18rpx; transform: rotate(-4deg); }
+.shelf view:nth-child(2) { left: 42rpx; height: 42rpx; background: #E8D9C3; }
+.shelf view:nth-child(3) { right: 22rpx; width: 44rpx; height: 18rpx; background: #F9F7F2; }
+.title { color: #222222; font-size: 32rpx; font-weight: 700; }
+.desc { max-width: 540rpx; margin-top: 12rpx; color: #666666; font-size: 25rpx; line-height: 40rpx; }
+.action { min-width: 224rpx; margin-top: 28rpx; color: #2C425B; background: rgba(232, 217, 195, .58); border: 2rpx solid rgba(44, 66, 91, .32); }

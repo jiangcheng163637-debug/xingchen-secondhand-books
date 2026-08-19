@@ -1,0 +1,44 @@
+<view class="page publish-page">
+  <view class="intro">
+    <view class="intro-spine"></view>
+    <text class="overline">旧书流转登记</text>
+    <text class="intro-title">把读过的好书，交给下一位同学</text>
+    <view class="intro-rule"></view>
+    <text class="intro-note">最多 9 张图，第一张作为 4:5 封面</text>
+    <view class="intro-book"><view></view><text>传</text></view>
+  </view>
+
+  <view class="photo-section">
+    <view class="section-head"><view><text class="section-title">书籍照片</text><view class="title-line"></view></view><text>{{form.images.length}} / 9</text></view>
+    <view class="images">
+      <view class="image-item" wx:for="{{form.images}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" data-src="{{item}}" bindtap="preview" />
+        <view class="remove" data-index="{{index}}" catchtap="removeImage"><view></view><view></view></view>
+        <text wx:if="{{index === 0}}" class="cover-label">封面</text>
+      </view>
+      <view wx:if="{{canAddImage}}" class="add-image" bindtap="chooseImages"><view class="add-icon"><view></view><view></view></view><text class="add-note">拍照 / 相册</text></view>
+    </view>
+  </view>
+
+  <view class="form-card">
+    <view class="card-caption"><text>书籍档案</text><view></view></view>
+    <view class="field required"><text class="label">书名</text><input class="input" value="{{form.title}}" maxlength="60" placeholder="例如：高等数学第七版" data-key="title" bindinput="update" /></view>
+    <view class="field"><text class="label">作者</text><input class="input" value="{{form.author}}" placeholder="作者或编者" data-key="author" bindinput="update" /></view>
+    <view class="field"><text class="label">出版社</text><input class="input" value="{{form.publisher}}" placeholder="选填" data-key="publisher" bindinput="update" /></view>
+    <view class="field"><text class="label">ISBN</text><view class="inline"><input class="input" value="{{form.isbn}}" type="text" placeholder="选填，可扫码录入" data-key="isbn" bindinput="update" /><button class="scan" bindtap="scanIsbn">扫码</button></view></view>
+    <view class="price-fields"><view class="field"><text class="label">原价</text><input class="input" value="{{form.originalPrice}}" type="digit" placeholder="¥ 0.00" data-key="originalPrice" bindinput="update" /></view><view class="field required"><text class="label">售价</text><input class="input" value="{{form.salePrice}}" type="digit" placeholder="¥ 0.00" data-key="salePrice" bindinput="update" /></view></view>
+    <picker range="{{conditions}}" bindchange="conditionChange"><view class="field picker"><text class="label">成色</text><view class="picker-value"><text class="fold-tag">{{form.condition}}</text><view class="picker-mark"></view></view></view></picker>
+    <picker range="{{publishCategories}}" bindchange="categoryChange"><view class="field picker"><text class="label">分类</text><view class="picker-value"><text class="fold-tag">{{form.category}}</text><view class="picker-mark"></view></view></view></picker>
+    <view class="field textarea-field"><text class="label">补充描述</text><textarea value="{{form.description}}" maxlength="500" placeholder="笔记、缺损、适用课程等信息会帮助买家判断" data-key="description" bindinput="update" /><text class="counter">{{form.description.length}} / 500</text></view>
+  </view>
+
+  <view class="form-card contact-card">
+    <view class="card-caption"><text>交接方式</text><view></view></view>
+    <picker range="{{contactTypes}}" range-key="label" bindchange="contactChange"><view class="field picker"><text class="label">联系类型</text><view class="picker-value"><text>{{form.contactType === 'phone' ? '手机号' : '微信号'}}</text><view class="picker-mark"></view></view></view></picker>
+    <view class="field required"><text class="label">联系方式</text><input class="input" value="{{form.contactValue}}" placeholder="仅在买家确认后受控展示" data-key="contactValue" bindinput="update" /></view>
+    <view class="privacy"><checkbox-group bindchange="togglePrivacy"><label><checkbox value="yes" checked="{{form.privacyAccepted}}" color="#2C425B" /><text>我确认信息真实，并同意联系方式在买家明确确认后展示。平台不提供支付与交易担保。</text></label></checkbox-group></view>
+  </view>
+
+  <button class="submit" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">{{submitting ? '正在发布…' : '确认发布'}}</button>
+  <button wx:if="{{draftFound}}" class="clear-draft" bindtap="clearDraft">清空草稿</button>
+</view>

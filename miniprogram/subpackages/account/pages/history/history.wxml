@@ -1,0 +1,7 @@
+<view class="page history-page">
+  <view class="page-heading"><text>浏览足迹</text><view></view></view>
+  <skeleton wx:if="{{loading}}" count="4" />
+  <empty-state wx:elif="{{error}}" title="足迹加载失败" description="{{error}}" actionText="重试" bind:action="load" />
+  <empty-state wx:elif="{{!items.length}}" title="还没有浏览足迹" description="去书架看看，遇见想读的下一本书" actionText="去逛首页" bind:action="goHome" />
+  <view wx:else class="grid"><book-card wx:for="{{items}}" wx:key="id" book="{{item}}" bind:open="open" /></view>
+</view>

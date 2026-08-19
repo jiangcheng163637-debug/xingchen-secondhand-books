@@ -1,0 +1,120 @@
+page {
+  --ink-blue: #2C425B;
+  --kraft: #E8D9C3;
+  --bookmark-red: #C85A5A;
+  --paper: #F9F7F2;
+  --text: #222222;
+  --muted: #666666;
+  --radius: 12rpx;
+  --dialog-radius: 20rpx;
+  --space-inner: 16rpx;
+  --space-section: 32rpx;
+  min-height: 100%;
+  background: #F9F7F2;
+  color: #222222;
+  font-family: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", serif;
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+view, text, input, textarea, button, image, scroll-view, picker, checkbox-group, label {
+  box-sizing: border-box;
+}
+
+button {
+  min-height: 80rpx;
+  margin: 0;
+  padding: 0 32rpx;
+  color: #222222;
+  background: transparent;
+  border-radius: 12rpx;
+  font-family: inherit;
+  font-size: 28rpx;
+  line-height: 80rpx;
+}
+
+button::after { border: 0; }
+button[disabled] { opacity: .48; }
+input, textarea { color: #222222; font-family: inherit; font-size: 28rpx; }
+
+.page {
+  min-height: 100vh;
+  padding: 24rpx;
+  animation: page-turn-in 240ms ease-out both;
+}
+
+.primary,
+.button-primary {
+  min-height: 80rpx;
+  color: #F9F7F2;
+  background: #2C425B;
+  font-weight: 700;
+}
+
+.secondary,
+.button-secondary {
+  min-height: 80rpx;
+  color: #2C425B;
+  background: rgba(232, 217, 195, .56);
+  border: 2rpx solid rgba(44, 66, 91, .28);
+}
+
+.danger,
+.button-danger {
+  min-height: 80rpx;
+  color: #F9F7F2;
+  background: #C85A5A;
+  font-weight: 700;
+}
+
+.section-title {
+  margin: 32rpx 0 16rpx;
+  color: #222222;
+  font-size: 34rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+
+.muted { color: #666666; }
+.ink-rule { height: 2rpx; background: rgba(44, 66, 91, .34); }
+.line-clamp-2 { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+
+.field {
+  position: relative;
+  min-height: 96rpx;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid rgba(44, 66, 91, .42);
+}
+
+.input { width: 100%; min-height: 52rpx; }
+input:focus, textarea:focus { border-color: #2C425B; box-shadow: inset 8rpx 0 0 #C85A5A; }
+.safe-bottom { padding-bottom: calc(32rpx + env(safe-area-inset-bottom)); }
+
+.bookmark-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40rpx;
+  padding: 4rpx 20rpx 4rpx 14rpx;
+  color: #F9F7F2;
+  background: #C85A5A;
+  font-size: 20rpx;
+  line-height: 32rpx;
+}
+
+.bookmark-tag::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -1rpx;
+  width: 0;
+  height: 0;
+  border-top: 20rpx solid transparent;
+  border-right: 10rpx solid #F9F7F2;
+  border-bottom: 20rpx solid transparent;
+}
+
+@keyframes page-turn-in {
+  from { opacity: 0; transform: translateX(18rpx); }
+  to { opacity: 1; transform: translateX(0); }
+}
